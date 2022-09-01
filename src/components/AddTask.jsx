@@ -5,15 +5,15 @@ const { Search } = Input;
 
 export default function AddTask({ setTaskList }) {
     const [task, setTask] = useState('');
-    const addTask = (value) => {
-        fetch('http://three-do-api.web.app/tasks', {
+    const addTask = () => {
+        fetch('https://three-do-api-kg.web.app/tasks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ task, done: false })
         })
-        .then(results => results.json())
+        .then((results) => results.json())
         .then(data => {
             setTaskList(data);
             setTask ('')
